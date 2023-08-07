@@ -18,6 +18,15 @@ class ProductController extends Controller
     }
     public function store(Request $request)
     {
+        // Validate Data
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'image' => 'required|mimes:jpeg,jpg,png,gif|max:10000',
+        ]);
+
+
+        // Upolad Image
         $imageName = time().'.'.$request->image->extension();
         $request->image->move(public_path('products'), $imageName);
         // dd($request->all());
