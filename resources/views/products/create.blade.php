@@ -22,7 +22,12 @@
         </li>
         </ul>
     </nav>
-    
+    {{-- flash session --}}
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-block">
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
     {{-- Container  --}}
     <div class="container">
         <div class="row justify-content-center">

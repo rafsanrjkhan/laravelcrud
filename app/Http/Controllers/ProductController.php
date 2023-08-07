@@ -37,7 +37,7 @@ class ProductController extends Controller
         $product->description = $request->description;
 
         $product->save();
-        return back();
+        return back()->withSuccess('Product Created');
 
     }
 }
