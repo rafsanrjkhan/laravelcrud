@@ -30,20 +30,29 @@
         </div>
 
         {{-- view table --}}
-        <table class="table">
+        <table class="table table-hover mt-2">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Description</th>
                     <th>Image</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>afg</td>
-                    <td>cvcc</td>
-                    <td>v</td>
-                </tr>
+               @foreach ($products as $product)
+                    <tr>
+                        <td>{{ $loop->index }}</td>
+                        <td>{{ $product->name }}</td>
+                        <td>{{ $product->description }}</td>
+                        <td>
+                            <img src="products/{{ $product->image }}"
+                            class="rounded-circle" width="70" height="70"/>
+                        </td>
+                        <td>Edit</td>
+                    </tr>
+               @endforeach
             </tbody>
         </table>
     </div>
