@@ -28,6 +28,24 @@
         <div class="text-left">
           <a href="products/create" class="btn btn-dark mt-3">New Product</a>
         </div>
+
+        {{-- view table --}}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>afg</td>
+                    <td>cvcc</td>
+                    <td>v</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     
 </body>
