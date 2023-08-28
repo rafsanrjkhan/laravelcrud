@@ -52,7 +52,10 @@
                         </td>
                         <td>
                             <a href="products/{{ $product->id }}/edit" class="btn btn-dark btn-sm">
-                            Edit </a> | Delete</td>
+                            Edit </a> | 
+                            <a href="products/{{ $product->id }}/delete" class="btn btn-dark btn-sm">
+                            Delete </a>
+                        </td>
                     </tr>
                @endforeach
             </tbody>
