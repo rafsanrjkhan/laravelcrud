@@ -43,14 +43,16 @@
             <tbody>
                @foreach ($products as $product)
                     <tr>
-                        <td>{{ $loop->index }}</td>
+                        <td>{{ $loop->index+1 }}</td>
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->description }}</td>
                         <td>
                             <img src="products/{{ $product->image }}"
-                            class="rounded-circle" width="70" height="70"/>
+                            class="rounded-circle" width="50" height="50"/>
                         </td>
-                        <td>Edit</td>
+                        <td>
+                            <a href="products/{{ $product->id }}/edit" class="btn btn-dark btn-sm">
+                            Edit </a> | Delete</td>
                     </tr>
                @endforeach
             </tbody>
