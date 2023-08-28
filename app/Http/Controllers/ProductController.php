@@ -75,4 +75,11 @@ class ProductController extends Controller
         // dd($request->all());
         // dd($id);
     }
+    public function destroy($id)
+    {
+        $product = Product::where('id',$id)->first();
+        $product->delete();
+        return back()->withSuccess('Product Deleted');
+
+    }
 }
