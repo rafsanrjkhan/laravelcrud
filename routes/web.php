@@ -21,6 +21,8 @@ Route::get('products/{id}/edit',[ProductController::class, 'edit']);
 Route::put('products/{id}/update',[ProductController::class, 'update']);
 Route::get('products/{id}/delete',[ProductController::class, 'destroy']);
 Route::delete('products/{id}/delete',[ProductController::class, 'destroy']);
+Route::get('products/{id}/show',[ProductController::class, 'show']);
+// Route::get('/products', 'ProductController@index')->name('products.index');
 
 
 // Route::get('/', function () {
