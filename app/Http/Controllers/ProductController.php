@@ -41,4 +41,38 @@ class ProductController extends Controller
         return back()->withSuccess('Product Created');
 
     }
+    public function edit($id)
+    {
+        $product = Product::where('id',$id)->first(); 
+        return view('products.edit',['product' => $product]);
+        // dd($id);
+    }
+    public function update(Request $request, $id)
+    {
+        // Validate Data
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'image' => 'nullable|mimes:jpeg,jpg,png,gif|max:10000',
+        ]);
+ 
+       $product = Product::where('id',$id)->first();
+
+        if(isset($request->image)){
+        // Update Image
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('products'), $imageName);
+        $product->image = $imageName;
+        }
+       
+        // dd($request->all());
+        // dd($imageName);
+        $product->name = $request->name;
+        $product->description = $request->description;
+
+        $product->save();
+        return back()->withSuccess('Product Updated');
+        // dd($request->all());
+        // dd($id);
+    }
 }
